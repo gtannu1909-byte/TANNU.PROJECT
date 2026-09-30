@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tannu Gupta | Data Science & AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5ff;--ink:#141a3a;--mute:#56608a;--glass:rgba(255,255,255,.55);--line:rgba(255,255,255,.8);--a:#6d5efc;--b:#19c9a8;--c:#ff7eb6;--shadow:0 10px 40px rgba(60,50,160,.15);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1128;--ink:#eef0ff;--mute:#a3abd6;--glass:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);--shadow:0 10px 40px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0d1128;--ink:#eef0ff;--mute:#a3abd6;--glass:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);--shadow:0 10px 40px rgba(0,0,0,.4)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1;margin:0}
+.blobs{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.blobs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.6;animation:drift 18s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:46vmax;height:46vmax;background:var(--a);top:-12vmax;left:-10vmax}
+.blobs i:nth-child(2){width:38vmax;height:38vmax;background:var(--b);bottom:-10vmax;right:-8vmax;animation-delay:-6s}
+.blobs i:nth-child(3){width:28vmax;height:28vmax;background:var(--c);top:40%;left:45%;animation-delay:-11s;opacity:.4}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.blobs i{animation:none}html{scroll-behavior:auto}}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1040px;margin:14px auto 0;padding:10px 18px;border-radius:999px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+nav b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem}
+nav div{display:flex;gap:16px;align-items:center;font-size:.92rem;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none}nav a:hover{color:var(--ink)}
+button{font:inherit;cursor:pointer}
+#theme{border:1px solid var(--line);background:var(--glass);color:var(--ink);border-radius:999px;padding:4px 12px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--a);outline-offset:3px}
+main{max-width:1040px;margin:0 auto;padding:0 20px 60px}
+section{padding:56px 0 0}
+.hero{padding-top:72px;display:grid;gap:28px}
+.hero h1{font-size:clamp(2.6rem,9vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 span{background:linear-gradient(100deg,var(--a),var(--c) 55%,var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.hero p{max-width:56ch;font-size:1.15rem;color:var(--mute);margin:0}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:14px;text-decoration:none;font-weight:500;border:1px solid var(--line);background:var(--glass);color:var(--ink);backdrop-filter:blur(12px);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--a);color:#fff;border-color:transparent}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:20px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.glass h3{font-size:1.3rem;margin-bottom:8px}
+.glass p{margin:0;color:var(--mute)}
+.tag{display:inline-block;margin:12px 6px 0 0;padding:3px 12px;border-radius:999px;font-size:.82rem;background:rgba(109,94,252,.15);color:var(--ink)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--ink)}
+.tabs button[aria-pressed="true"]{background:var(--a);color:#fff;border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:8px 16px;border-radius:12px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.chips span[hidden]{display:none}
+.learn{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+footer{text-align:center;color:var(--mute);padding:30px 20px;font-size:.9rem}
+.hero .glass{animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+@media (prefers-reduced-motion:reduce){.hero .glass{animation:none}}
+</style>
+</head>
+<body>
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<nav>
+  <b>Tannu Gupta</b>
+  <div>
+    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
+    <button id="theme" aria-label="Switch light or dark theme">Theme</button>
+  </div>
+</nav>
+<main>
+  <section class="hero">
+    <h1>Hi, I'm <span>Tannu Gupta</span></h1>
+    <p>Data Science and AI student from Delhi. I turn data into answers with Python and SQL, and I build small web projects with HTML, CSS and JavaScript.</p>
+    <div class="btns">
+      <a class="btn p" href="#projects">See my projects</a>
+      <a class="btn" href="resume.html">Open my resume</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>What I work with</h2>
+    <div class="tabs" role="group" aria-label="Filter skills">
+      <button data-f="all" aria-pressed="true">All</button>
+      <button data-f="data" aria-pressed="false">Data and AI</button>
+      <button data-f="code" aria-pressed="false">Programming</button>
+      <button data-f="web" aria-pressed="false">Web</button>
+    </div>
+    <div class="chips" id="chips">
+      <span data-g="data">Python</span><span data-g="data">NumPy</span><span data-g="data">SQL</span><span data-g="data">MySQL</span>
+      <span data-g="data">Data Analytics</span><span data-g="data">Machine Learning</span><span data-g="data">Generative AI</span><span data-g="data">Excel</span>
+      <span data-g="code">Java</span><span data-g="code">C</span><span data-g="code">C++</span><span data-g="code">Git and GitHub</span>
+      <span data-g="web">HTML</span><span data-g="web">CSS</span><span data-g="web">JavaScript</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="glass">
+        <h3>Weather app</h3>
+        <p>Search a city and see its current weather, pulled live from a weather API.</p>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+      </article>
+      <article class="glass">
+        <h3>Personal portfolio</h3>
+        <p>This site: a portfolio with a resume page, glass cards and a light and dark theme.</p>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+      </article>
+      <article class="glass">
+        <h3>Data dashboard</h3>
+        <p>In progress. Charts built from a real dataset, combining my data skills with the web.</p>
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="learning">
+    <h2>Currently learning</h2>
+    <div class="learn">
+      <article class="glass"><h3>BCA, IGNOU</h3><p>Studying through open and distance learning. First semester is underway.</p></article>
+      <article class="glass"><h3>Data Science with AI</h3><p>Course at BCL Instinfotech, Uttam Nagar, with an internship to finish it. Also picking up C++, Power BI and Tableau.</p></article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's connect</h2>
+    <div class="glass">
+      <p>I'm looking for internship and learning opportunities in data and AI. Message me on LinkedIn or see my code on GitHub.</p>
+      <div class="btns" style="margin-top:16px">
+        <a class="btn p" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Built by Tannu Gupta with HTML, CSS and JavaScript</footer>
+<script>
+var root=document.documentElement;
+try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s)}catch(e){}
+document.getElementById('theme').addEventListener('click',function(){
+  var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  var n=dark?'light':'dark';root.setAttribute('data-theme',n);
+  try{localStorage.setItem('theme',n)}catch(e){}
+});
+var tabs=document.querySelectorAll('.tabs button'),chips=document.querySelectorAll('#chips span');
+tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t)});
+  chips.forEach(function(c){c.hidden=t.dataset.f!=='all'&&c.dataset.g!==t.dataset.f});
+})});
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume | Tannu Gupta</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5ff;--ink:#141a3a;--mute:#56608a;--glass:rgba(255,255,255,.6);--line:rgba(255,255,255,.85);--a:#6d5efc;--b:#19c9a8;--c:#ff7eb6}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1128;--ink:#eef0ff;--mute:#a3abd6;--glass:rgba(255,255,255,.07);--line:rgba(255,255,255,.14)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 'DM Sans',system-ui,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(40vmax 40vmax at 0 0,rgba(109,94,252,.45),transparent),radial-gradient(35vmax 35vmax at 100% 100%,rgba(25,201,168,.4),transparent)}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;margin:0;line-height:1.15}
+main{max-width:820px;margin:0 auto;padding:32px 20px 60px}
+.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.btn{padding:10px 20px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--ink);text-decoration:none;font:inherit;cursor:pointer}
+.btn.p{background:var(--a);color:#fff;border-color:transparent}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:18px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+h1{font-size:clamp(2rem,7vw,3rem);font-weight:800}
+.role{color:var(--mute);margin:6px 0 0;font-size:1.1rem}
+h2{font-size:1.4rem;margin-bottom:12px}
+h3{font-size:1.1rem}
+p{margin:4px 0 0;color:var(--mute)}
+.item{margin-bottom:14px}.item:last-child{margin-bottom:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:6px 14px;border-radius:10px;background:rgba(109,94,252,.15)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--a);outline-offset:3px}
+@media print{.top{display:none}body:before{display:none}.card{border:1px solid #ccc;backdrop-filter:none;background:#fff;color:#000}p,.role{color:#333}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <a class="btn" href="index.html">Back to portfolio</a>
+    <button class="btn p" onclick="window.print()">Save as PDF</button>
+  </div>
+
+  <section class="card">
+    <h1>Tannu Gupta</h1>
+    <p class="role">Data Science and AI student</p>
+    <p>Delhi, India</p>
+  </section>
+
+  <section class="card">
+    <h2>Summary</h2>
+    <p>Data Science and AI student who works with Python and SQL, and builds small web projects with HTML, CSS and JavaScript. Looking for an internship in data and AI.</p>
+  </section>
+
+  <section class="card">
+    <h2>Education</h2>
+    <div class="item"><h3>BCA, Indira Gandhi National Open University (IGNOU)</h3><p>Open and distance learning. Currently in first semester.</p></div>
+    <div class="item"><h3>Data Science with AI, BCL Instinfotech</h3><p>Uttam Nagar, Delhi. Course runs until next year and includes an internship. Certificate on completion.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>Skills</h2>
+    <div class="chips">
+      <span>Python</span><span>NumPy</span><span>SQL</span><span>MySQL</span><span>Data Analytics</span><span>Machine Learning</span><span>Generative AI</span><span>Excel</span><span>Java</span><span>C</span><span>C++</span><span>Git and GitHub</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Projects</h2>
+    <div class="item"><h3>Weather app</h3><p>Search a city and see live weather from an API. Built with HTML, CSS and JavaScript.</p></div>
+    <div class="item"><h3>Personal portfolio website</h3><p>Portfolio with a resume page, glass design and light and dark theme. Built with HTML, CSS and JavaScript.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>Currently learning</h2>
+    <p>C++, Power BI, Tableau and C#.</p>
+  </section>
+</main>
+
+
+</script>
+</body>
+</html>
